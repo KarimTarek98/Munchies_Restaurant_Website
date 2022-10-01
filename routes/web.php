@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app.index');
+});
+
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('/services', 'appServices');
 });
 
 Route::get('/dashboard', function () {
