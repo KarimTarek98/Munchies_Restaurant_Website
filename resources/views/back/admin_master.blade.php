@@ -14,7 +14,7 @@
     <link href="https://cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css" rel="stylesheet" />
 
     <!-- PLUGINS CSS STYLE -->
-    <link href="{{ asset('back/assets/plugins/toaster/toastr.min.css') }}" rel="stylesheet" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <link href="{{ asset('back/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
     <link href="{{ asset('back/assets/plugins/flag-icons/css/flag-icon.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('back/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
@@ -84,7 +84,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCn8TFXGg17HAUcNpkwtxxyT9Io9B_NcM" defer></script>
     <script src="{{ asset('back/assets/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('back/assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('back/assets/plugins/toaster/toastr.min.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     <script src="{{ asset('back/assets/plugins/slimscrollbar/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('back/assets/plugins/charts/Chart.min.js') }}"></script>
     <script src="{{ asset('back/assets/plugins/ladda/spin.min.js') }}"></script>
@@ -101,6 +101,27 @@
     <script src="{{ asset('back/assets/js/date-range.js') }}"></script>
     <script src="{{ asset('back/assets/js/map.js') }}"></script>
     <script src="{{ asset('back/assets/js/custom.js') }}"></script>
+
+    {{-- initialize toastr --}}
+    {{-- <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script> --}}
 
     @yield('js')
 

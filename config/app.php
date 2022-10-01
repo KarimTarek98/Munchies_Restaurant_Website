@@ -184,7 +184,10 @@ return [
 
         /*
          * Package Service Providers...
+
          */
+        Flasher\Laravel\FlasherServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -210,6 +213,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Flasher' => Flasher\Laravel\Facade\Flasher::class,
     ])->toArray(),
 
 ];

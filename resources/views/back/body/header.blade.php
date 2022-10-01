@@ -17,7 +17,7 @@
 
                 </li>
                 <li class="dropdown notifications-menu">
-                    
+
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li class="dropdown-header">You have 5 notifications</li>
                         <li>
@@ -61,17 +61,20 @@
                     </ul>
                 </li>
                 <!-- User Account -->
+                @php
+                    $user = Auth::user();
+                @endphp
                 <li class="dropdown user-menu">
                     <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <img src="{{ asset('back/assets/img/user/user.png') }}" class="user-image" alt="User Image" />
-                        <span class="d-none d-lg-inline-block">{{ Auth::user()->name }}</span>
+                        <img src="{{ asset($user->profile_pic) }}" class="user-image" alt="User Image" />
+                        <span class="d-none d-lg-inline-block">{{ $user->name }}</span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <!-- User image -->
                         <li class="dropdown-header">
-                            <img src="{{ asset('back/assets/img/user/user.png') }}" class="img-circle" alt="User Image" />
+                            <img src="{{ asset($user->profile_pic) }}" class="img-circle" alt="User Image" />
                             <div class="d-inline-block">
-                                Abdus Salam <small class="pt-1">abdus@gmail.com</small>
+                                {{$user->name}} <small class="pt-1">{{ $user->email }}</small>
                             </div>
                         </li>
 
@@ -80,16 +83,10 @@
                                 <i class="mdi mdi-account"></i> My Profile
                             </a>
                         </li>
+
+
                         <li>
-                            <a href="email-inbox.html">
-                                <i class="mdi mdi-email"></i> Message
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="mdi mdi-diamond-stone"></i> Projects </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                            <a href="{{ route('change.pass') }}"> <i class="mdi mdi-settings"></i> Change Password </a>
                         </li>
 
                         <li class="dropdown-footer">

@@ -11,7 +11,10 @@
 										<div class="profile-content-left pt-5 pb-3 px-3 px-xl-5">
 											<div class="card text-center widget-profile px-0 border-0">
 												<div class="card-img mx-auto rounded-circle">
-													<img src="{{ asset('back/assets/img/user/u6.jpg') }}" alt="user image">
+                                                    @php
+                                                        $authUser = Auth::user();
+                                                    @endphp
+													<img src="{{ url($user->profile_pic) }}" width="100" height="100" alt="user image">
 												</div>
 												<div class="card-body">
 													<h4 class="py-2 text-dark">{{ $user->name }}</h4>
