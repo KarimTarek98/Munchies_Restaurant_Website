@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('app.index');
-});
+})->name('home');
 
 Route::controller(ServiceController::class)->group(function () {
-    Route::get('/services', 'appServices');
+    Route::get('/services', 'appServices')->name('services');
 });
+
+Route::get('/about', [AboutController::class, 'appAbout'])->name('about.page');
 
 Route::get('/dashboard', function () {
     //return view('dashboard');

@@ -187,6 +187,7 @@ return [
 
          */
         Flasher\Laravel\FlasherServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
         /*
@@ -214,6 +215,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Flasher' => Flasher\Laravel\Facade\Flasher::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];

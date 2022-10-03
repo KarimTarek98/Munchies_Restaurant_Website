@@ -33,8 +33,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Change Profile Picture</label>
-                                <input type="file" name="profile_pic" class="form-control-file" id="exampleFormControlFile1">
+                                <label for="profile_pic">Change Profile Picture</label>
+                                <input type="file" name="profile_pic" class="form-control-file" id="profile_pic">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile_pic"></label>
+                                <img src="" alt="new_profile_pic" width="80" height="100" id="show_pic">
                             </div>
 
                             <div class="form-footer pt-4 pt-5 mt-4 border-top">
@@ -46,4 +51,18 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(function () {
+            $('#profile_pic').change(function (e) {
+                var readImg = new FileReader();
+                readImg.onload = function (e) {
+                    $('#show_pic').attr('src', e.target.result);
+                }
+                readImg.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection

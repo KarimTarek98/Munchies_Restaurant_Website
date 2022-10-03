@@ -1,3 +1,7 @@
+@php
+    $route = Route::currentRouteName();
+@endphp
+
 <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
         <a href="" class="navbar-brand p-0">
@@ -9,9 +13,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="{{ url('/services') }}" class="nav-item nav-link">Service</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link {{ ($route == 'home') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('about.page') }}" class="nav-item nav-link {{ ($route == 'about.page') ? 'active' : '' }}">
+                    About</a>
+                <a href="{{ url('/services') }}" class="nav-item nav-link {{ ($route == 'services') ? 'active' : '' }}">Service</a>
                 <a href="menu.html" class="nav-item nav-link">Menu</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

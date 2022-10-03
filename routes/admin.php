@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\AboutMultiImages;
 use App\Http\Controllers\Home\ServiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +26,19 @@ Route::prefix('admin')->group(function () {
         Route::post('/update-service', 'updateService')->name('update.service');
         Route::get('/delete-service/{id}', 'deleteService')->name('delete.service');
     });
+
+    // About Routes
+    Route::controller(AboutMultiImages::class)->group(function () {
+        Route::get('/about-imgs', 'index')->name('about.multi_images');
+        Route::get('/add-images', 'addImages')->name('add.images');
+        Route::post('/store-images', 'storeImgs')->name('store.images');
+        Route::get('/change-about-img/{id}', 'changeImg')->name('change.image');
+        Route::post('/update-about-img', 'updateImg')->name('update.image');
+        Route::get('delete-image/{id}', 'deleteImage')->name('delete.image');
+    });
+
+    Route::get('/about', [AboutController::class, 'aboutPage'])->name('about.info');
+    Route::get('/about/edit/{id}', [AboutController::class, 'editAbout'])->name('edit.about_info');
+    Route::post('/update-about', [AboutController::class, 'updateAbout'])->name('update.about');
 
 });

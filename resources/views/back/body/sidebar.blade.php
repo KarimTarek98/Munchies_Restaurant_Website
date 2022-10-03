@@ -80,23 +80,24 @@
                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                     data-target="#charts" aria-expanded="false" aria-controls="charts">
                     <i class="mdi mdi-chart-pie"></i>
-                    <span class="nav-text">Charts</span> <b class="caret"></b>
+                    <span class="nav-text">About</span> <b class="caret"></b>
                 </a>
                 <ul class="collapse" id="charts" data-parent="#sidebar-menu">
                     <div class="sub-menu">
 
-
-
                         <li>
-                            <a class="sidenav-item-link" href="chartjs.html">
-                                <span class="nav-text">ChartJS</span>
+                            <a class="sidenav-item-link" href="{{ route('about.multi_images') }}">
+                                <span class="nav-text">About Multi Images</span>
 
                             </a>
                         </li>
 
+                        <li>
+                            <a class="sidenav-item-link" href="{{ route('about.info') }}">
+                                <span class="nav-text">About Descriptions</span>
 
-
-
+                            </a>
+                        </li>
                     </div>
                 </ul>
             </li>
